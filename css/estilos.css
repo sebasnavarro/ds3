@@ -1,0 +1,247 @@
+body {
+    margin: 0;
+    font-family: sans-serif;
+}
+
+header {
+    width: 100%;
+    /*fondo de la lista */
+    background: #ffffff;
+}
+
+.main_content {
+    width: 100%;
+    height: 100px;
+    text-align: center;
+    /* fondo del header*/
+    background-color: #ffffff;
+}
+
+.servicios {
+    width: 80%;
+    margin: 0 auto;
+    height: 100%;
+}
+
+header label {
+    display: block;
+}
+
+header label:hover {
+    cursor: pointer;
+}
+
+.contenido {
+    width: 100%;
+    background-color: rgb(240, 240, 240);
+}
+
+.contenido1 {
+    height: 100%;
+    margin: 0 auto;
+    width: 50%;
+    background-color: rgb(255, 255, 255);
+}
+
+.contenido2 {
+    width: 100%;
+    height: 100%;
+    background-color: rgb(255, 255, 255);
+    position: relative;
+    flex: 1 1 0;
+    /* Chrome needs non-auto flex-basis */
+}
+
+.table {
+    background-color: #fff;
+    width: 100%;
+}
+
+.buscador {
+    padding: 10px;
+}
+
+.cabecera {
+    background-color: rgb(26, 51, 97);
+    color: #fff;
+}
+
+.table th {
+    text-align: center;
+}
+
+.ws16 {
+    color: rgb(26, 51, 97);
+}
+
+@media (max-width: 862px) {
+    .contenido1 {
+        width: 80%;
+    }
+    .info {
+        font-size: 1rem;
+    }
+    .logo {
+        width: 100px;
+        height: 50px;
+    }
+}
+
+@media (max-width: 538px) {
+    .contenido1 {
+        width: 100%;
+    }
+    .info {
+        font-size: 1rem;
+    }
+    .logo {
+        width: 70px;
+        height: 35px;
+    }
+}
+
+
+/********************\
+  $Reset ☰
+\********************/
+
+
+/********************\
+    $Layout ☰
+  \********************/
+
+
+/*Damos estilos al menú*/
+
+.nav {
+    position: absolute;
+    width: 200px;
+    height: 100vh;
+    top: 0;
+    left: -220px;
+    /*Ocultamos el menú en la parte izquierda para que no se vea a menos que pulsemos sobre la hamburguesa*/
+    padding-top: 47px;
+    background-color: rgb(26, 51, 97);
+    border-right: 4px solid rgb(255, 255, 255);
+    transition: all .5s ease;
+    z-index: 1;
+    /*Damos a la caja del menú una transición para que tenga un desplazamiento suave*/
+}
+
+
+/*Estilos de los li del menú*/
+
+.nav__item {
+    display: block;
+    width: 96%;
+    margin: 0 auto;
+    line-height: 2;
+    position: relative;
+    /*Le damos una posición relativa para posteriormente añadirle el triangulo que indica que se está en la página actual del menú*/
+    border-bottom: .5px solid rgb(255, 255, 255);
+    border-top: .5px solid rgb(237, 255, 249);
+    background-color: transparent;
+    font-family: 'Lato', sans-serif;
+    text-align: center;
+    color: rgba(221, 231, 228, 1);
+}
+
+a:link,
+a:visited,
+a:active {
+    text-decoration: none;
+}
+
+
+/*Colocamos el triangulo negro a la pestaña del menú dónde nos encontramos actualmente*/
+
+.current:before {
+    content: "";
+    width: 0;
+    height: 0;
+    position: absolute;
+    /*Le damos al before una posición absoluta relativa al li que lo contiene*/
+    border-top: 17px solid transparent;
+    border-left: 15px solid rgb(26, 51, 97);
+    border-bottom: 17px solid transparent;
+    top: 0px;
+    right: -15px;
+    /*Lo posicionamos -15px a la derecha de su contenedor*/
+    z-index: 4;
+    /*le otorgamos un z-index alto para que se posicione arriba de otros elementeos*/
+}
+
+
+/*Colocamos el borde verde al triangulo por medio de otro trangulo verde*/
+
+.current:after {
+    content: "";
+    width: 0;
+    height: 0;
+    position: absolute;
+    /*Le damos al after una posición absoluta relativa al li que lo contiene*/
+    border-top: 16.5px solid transparent;
+    border-left: 17px solid rgb(255, 255, 255);
+    border-bottom: 17px solid transparent;
+    top: .5px;
+    right: -21px;
+    z-index: 1;
+    /*le otorgamos un z-index bajo para que se posicione debajo del trinagulo negro*/
+}
+
+
+/*Estos son los estilos de la hamburguesa del menú que abre y cierra el mismo*/
+
+.menu-toogle {
+    position: absolute;
+    /*Lo posicionamos absolutamente para poder darle una posición y poder moverlo según el menú esté abierto o cerrado*/
+    width: 35px;
+    line-height: 1.1;
+    text-align: center;
+    top: 6.5px;
+    /*Le damos una posición top y left en donde queramos que se encuentre la hamburguesa del menú*/
+    left: 8px;
+    border-radius: 3px;
+    background-color: rgb(26, 51, 97);
+    transition: all .5s ease;
+    /*Añadimos una transición para que realice un desplazamineto suave*/
+    z-index: 10;
+}
+
+
+/*Añadimos la haburguesa y le damos unos estilos*/
+
+.menu-toogle::before {
+    content: "☰";
+    font-size: 32px;
+    color: white;
+}
+
+
+/*Estos son los estilos que le dan la funcionalidad al menú*/
+
+
+/*El checkbox según esté activado o no hará que el menú aparezca o desaparezca*/
+
+.checkbox {
+    display: none;
+    /*Ocultamos el checkbox pues no nos interesa que se vea*/
+}
+
+.checkbox:checked~.nav {
+    left: 0px;
+    /*Le quitamos el left negativo para que el menú vuelva a su posición original*/
+    position: fixed;
+    /* Fijamos el menú lateral para que se desplace cuando hagamos scroll*/
+}
+
+.checkbox:checked~.main-w {
+    margin-left: 200px;
+    /*Cuando el checkbox asigna un margen al contenedor principal para que se desplace junto con el menú*/
+}
+
+.checkbox:checked~.menu-toogle {
+    left: 208px;
+    position: fixed;
+    /*Fijamos la hamburgues para que se desplace junto con el menú*/
+}

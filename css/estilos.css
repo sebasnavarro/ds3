@@ -107,10 +107,6 @@ header label:hover {
     text-align: center;
 }
 
-.ws16 {
-    color: rgb(26, 51, 97);
-}
-
 @media (max-width: 862px) {
     .contenido1 {
         width: 80%;
@@ -142,7 +138,7 @@ header label:hover {
         width: 100%;
     }
     .textobg {
-        font-size: 0.5rem;
+        font-size: 0.9rem;
     }
     .logo1 {
         width: 120px;

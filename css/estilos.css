@@ -41,7 +41,6 @@ table {
 th,
 td {
     border: 1px solid blue;
-    width: 100px;
     word-wrap: break-word;
 }
 
@@ -131,6 +130,9 @@ header label:hover {
     .logo2 {
         margin-left: 20px;
     }
+    .nav__item {
+        font-size: 60%;
+    }
 }
 
 @media (max-width: 561px) {
@@ -147,6 +149,9 @@ header label:hover {
     .logo2 {
         width: 120px;
         height: 60px;
+    }
+    .nav__item {
+        font-size: 70%;
     }
 }
 
@@ -194,6 +199,7 @@ header label:hover {
     font-family: "Lato", sans-serif;
     text-align: center;
     color: rgba(221, 231, 228, 1);
+    font: bold 90%;
 }
 
 a:link,
@@ -294,4 +300,12 @@ a:active {
     left: 208px;
     position: fixed;
     /*Fijamos la hamburgues para que se desplace junto con el menú*/
+}
+
+.low-blue {
+    background-color: rgb(32, 68, 134);
+}
+
+.plus-low-blue {
+    background-color: rgb(39, 84, 168);
 }
